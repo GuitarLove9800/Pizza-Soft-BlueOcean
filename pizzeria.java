@@ -1,12 +1,20 @@
 import java.util.Scanner;
 public class pizzeria {
-    static Scanner sc = new Scanner(System.in);
-    static int doble(int n){
-        return n*2;
+    static Scanner sc = new Scanner(System.in);// declare Scanner como variable global----
+
+
+
+//Funciones----------------------------
+
+
+
+
+
+//-----------------------------------Main----------------------------------------------------------------------------------------
+    public static void  main(String[]args){
+        //ADVERTENCIA: NO METER FUNCIONES DENTRO DEL MAIN//
+
     }
-    public static void main(String[] args) {
-        System.out.println("Ingrese el numero de pizzas: ");
-        
-    }
+    
 }
 
