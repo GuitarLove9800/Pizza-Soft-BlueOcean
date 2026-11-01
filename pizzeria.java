@@ -1,16 +1,29 @@
 import java.util.Scanner;
 public class pizzeria {
-    static Scanner sc = new Scanner(System.in);// declare Scanner como variable global----
+    static Scanner sc = new Scanner(System.in);// declare Scanner como variable global ---- 
+
+    // * Estilos de Comentarios
+        // Comentario Normal
+        // ! Este método quedará obsoleto en la próxima versión
+        // ! ERROR / ALERTA: No modificar este bloque sin autorización del equipo
+        // ? ¿Deberíamos cachear esta respuesta aquí?
+        // TODO: implementar validación de token
+        // * Información importante sobre el algoritmo
+        // // const valorViejo = 10;
 
 
 
-//Funciones----------------------------
+
+// ? ---------------------Funciones---------------------------------------------------------------------------------------------------
 
 
 
 
 
-//-----------------------------------Main----------------------------------------------------------------------------------------
+
+
+
+// ! -----------------------------------Main----------------------------------------------------------------------------------------
     public static void  main(String[]args){
         //ADVERTENCIA: NO METER FUNCIONES DENTRO DEL MAIN//
         int opMenu;
