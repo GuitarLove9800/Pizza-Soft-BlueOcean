@@ -8,6 +8,7 @@ Repetir
 		Leer opcionMenu
 
 		Segun opcionMenu
+						//menu principal
 			Caso 1:
 				Mostrar "Registrar cliente"
 				Mostrar "Ingrese nombre"
@@ -29,6 +30,7 @@ Repetir
 				Mostrar "¿Cuántas pizzas?"
 				Leer cantidadPizza
 				
+				//asignacion del precio a pizza
 				Segun opcionTamaños 
 					Caso 1: precioPizza <- 32.65
 					Caso 2: precioPizza <- 51
@@ -61,6 +63,8 @@ Repetir
 				Mostrar "Seleccione el sabor de la pizza"
 				Leer opcionPizzas
 				
+
+				//asignacion al sabor de pizza
 				Segun opcionPizzas
 					Caso 1:saborPizza<- "Pepperoni."
 					Caso 2:saborPizza<- "Hawaiana."
@@ -75,6 +79,7 @@ Repetir
 				//Bebidas
 				Mostrar "¿Desea agregar bebidas?, Escriba 1"
 				Leer agregarBebida
+
 				Si (agregarBebida == 1) Entonces
 					//Menu de bebidas
 					Mostrar "Bebidas"
@@ -84,6 +89,7 @@ Repetir
 					Mostrar "Seleccione una bebida"
 					Leer opcionBebida
 					
+					//asignacion de sabor de bebida
 					Segun opcionBebida
 						Caso 1:saborBebida<- "De sabor"
 						Caso 2:saborBebida<- "Coca Cola"
@@ -96,12 +102,19 @@ Repetir
 					Mostrar "2. 2 L"
 					Leer tamañoBebida
 					
+					//asignacion de precio de bebida
 					Segun TamañoBebida
 						Caso 1:precioBebida<- 12
 						Caso 2:precioBebida<- 40
 						Defecto: Mostrar "No disponible"
 					FinSegun
 
+					Segun TamañoBebida
+							Caso 1: tipoBebida<-"600ml"
+							Caso 2: tipoBebida<-"2L"
+					FinSegun
+
+					//cantidad de bebida
 					Mostrar "¿Cuantas bebidas?"
 					Leer cantidadBebida
 					
@@ -118,19 +131,21 @@ Repetir
 					MOSTRAR "2.	Dedos de queso"
 					Mostrar "Seleccione una bebida"
 					Leer opcionExtras
-					
+
 					Segun opcionExtras
 						Caso 1:saborExtras<- "Pan de ajo"
 						Caso 2:saborExtras<- "Dedos de queso"
 						Defecto: Mostrar "No disponible"
 					FinSegun
-					
+
+					//asignacion de precio extras
 					Segun opcionExtras
 						Caso 1:precioExtras<- 31
 						Caso 2:precioExtras<- 39
 						Defecto: Mostrar "No disponible"
 					FinSegun
 					
+					//cantidad de extras
 					Mostrar "¿Cuantos?"
 					Leer cantidadExtras
 				FinSi
@@ -159,7 +174,7 @@ Hasta que opcionMenu == 3
 	Mostrar "Nombre del cliente " nombre
 	Mostrar "Pizza " saborPizza, tipoTamaño," $" precioPizza
 	Mostrar "Numero de pizzas " cantidadPizza
-	Mostrar "Bebida " saborBebida, tamañoBebida, " $" precioBebida
+	Mostrar "Bebida " saborBebida, " " tipoBebida, " $" precioBebida
 	Mostrar "Cantidad de bebida " cantidadBebida
 	Mostrar "Extras " saborExtras, " $" precioExtras
 	Mostrar "Numero de extras " cantidadExtras
