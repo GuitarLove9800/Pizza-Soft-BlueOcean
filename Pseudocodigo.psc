@@ -1,4 +1,4 @@
- Algoritmo Pizzeria
+Algoritmo Pizzeria
 Repetir
 		Mostrar "Menu"
 		Mostrar "1.Registrar cliente"
@@ -8,7 +8,6 @@ Repetir
 		Leer opcionMenu
 
 		Segun opcionMenu
-						//menu principal
 			Caso 1:
 				Mostrar "Registrar cliente"
 				Mostrar "Ingrese nombre"
@@ -17,12 +16,12 @@ Repetir
 				MOSTRAR "MENU"
 				//menu de tamaño de pizza
 				Mostrar "Tamaños"
-				Mostrar "1.	Pizzeta (20cm diámetro) = $32.65"
-				Mostrar "2.	Personal (25cm diámetro) = $51"
-				Mostrar "3.	Pequeña (30cm diámetro) = $73.47"
-				Mostrar "4.	Mediana (35cm diámetro) = $100"
-				Mostrar "5.	Grande (40cm diámetro) = $130.6"
-				Mostrar "6.	Jumbo (50cm diámetro) = $204.08"
+				Mostrar "1.	Pizzeta (20cm diámetro)"
+				Mostrar "2.	Personal (25cm diámetro)"
+				Mostrar "3.	Pequeña (30cm diámetro)"
+				Mostrar "4.	Mediana (35cm diámetro)"
+				Mostrar "5.	Grande (40cm diámetro)"
+				Mostrar "6.	Jumbo (50cm diámetro)"
 				Mostrar "Seleccione el numero de tamaño"
 				Leer opcionTamaños
 					
@@ -30,14 +29,13 @@ Repetir
 				Mostrar "¿Cuántas pizzas?"
 				Leer cantidadPizza
 				
-				//asignacion del precio a pizza
 				Segun opcionTamaños 
-					Caso 1: precioPizza <- 32.65
-					Caso 2: precioPizza <- 51
-					Caso 3: precioPizza <- 73.47
-					caso 4: precioPizza <- 100 
-					Caso 5: precioPizza <- 130.6	
-					caso 6: precioPizza <- 204.08
+					Caso 1: tamañoProporcional <- .3265
+					Caso 2: tamañoProporcional <- .51
+					Caso 3: tamañoProporcional <- .7347
+					caso 4: tamañoProporcional <- 1
+					Caso 5: tamañoProporcional <- 1.306	
+					caso 6: tamañoProporcional <- 2.0408
 					Defecto: Mostrar "Opcion no valida"
 				FinSegun
 				
@@ -63,8 +61,6 @@ Repetir
 				Mostrar "Seleccione el sabor de la pizza"
 				Leer opcionPizzas
 				
-
-				//asignacion al sabor de pizza
 				Segun opcionPizzas
 					Caso 1:saborPizza<- "Pepperoni."
 					Caso 2:saborPizza<- "Hawaiana."
@@ -76,10 +72,20 @@ Repetir
 					Defecto: MOSTRAR "No se encontro el sabor"	
 				FinSegun
 				
+				Segun opcionPizzas
+					Caso 1:precioSabor<-100
+					Caso 2:precioSabor<-500
+					Caso 3:precioSabor<-133
+					Caso 4:precioSabor<-125
+					Caso 5:precioSabor<-139
+					Caso 6:precioSabor<-146
+					Caso 7:precioSabor<-149
+						
+				FinSegun
+				
 				//Bebidas
 				Mostrar "¿Desea agregar bebidas?, Escriba 1"
 				Leer agregarBebida
-
 				Si (agregarBebida == 1) Entonces
 					//Menu de bebidas
 					Mostrar "Bebidas"
@@ -89,7 +95,6 @@ Repetir
 					Mostrar "Seleccione una bebida"
 					Leer opcionBebida
 					
-					//asignacion de sabor de bebida
 					Segun opcionBebida
 						Caso 1:saborBebida<- "De sabor"
 						Caso 2:saborBebida<- "Coca Cola"
@@ -102,19 +107,17 @@ Repetir
 					Mostrar "2. 2 L"
 					Leer tamañoBebida
 					
-					//asignacion de precio de bebida
-					Segun TamañoBebida
+					Segun tamañoBebida
 						Caso 1:precioBebida<- 12
 						Caso 2:precioBebida<- 40
 						Defecto: Mostrar "No disponible"
 					FinSegun
-
+					
 					Segun TamañoBebida
 							Caso 1: tipoBebida<-"600ml"
 							Caso 2: tipoBebida<-"2L"
 					FinSegun
 
-					//cantidad de bebida
 					Mostrar "¿Cuantas bebidas?"
 					Leer cantidadBebida
 					
@@ -131,26 +134,27 @@ Repetir
 					MOSTRAR "2.	Dedos de queso"
 					Mostrar "Seleccione una bebida"
 					Leer opcionExtras
-
+					
 					Segun opcionExtras
 						Caso 1:saborExtras<- "Pan de ajo"
 						Caso 2:saborExtras<- "Dedos de queso"
 						Defecto: Mostrar "No disponible"
 					FinSegun
-
-					//asignacion de precio extras
+					
 					Segun opcionExtras
 						Caso 1:precioExtras<- 31
 						Caso 2:precioExtras<- 39
 						Defecto: Mostrar "No disponible"
 					FinSegun
 					
-					//cantidad de extras
 					Mostrar "¿Cuantos?"
 					Leer cantidadExtras
 				FinSi
 					
 				//formulas
+				
+				precioPizza<- precioSabor*tamañoProporcional
+				
 				subtotal<- cantidadPizza*precioPizza + cantidadBebida*precioBebida + cantidadExtras*precioExtras
 				Mostrar "Llevas $" subtotal
 				
@@ -174,7 +178,7 @@ Hasta que opcionMenu == 3
 	Mostrar "Nombre del cliente " nombre
 	Mostrar "Pizza " saborPizza, tipoTamaño," $" precioPizza
 	Mostrar "Numero de pizzas " cantidadPizza
-	Mostrar "Bebida " saborBebida, " " tipoBebida, " $" precioBebida
+	Mostrar "Bebida " saborBebida," " tipoBebida, " $" precioBebida
 	Mostrar "Cantidad de bebida " cantidadBebida
 	Mostrar "Extras " saborExtras, " $" precioExtras
 	Mostrar "Numero de extras " cantidadExtras
