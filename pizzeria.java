@@ -363,7 +363,6 @@ public class pizzeria {
         final String YELLOW = "\u001B[33m";
         final String PURPLE = "\u001B[35m";
         final String WHITE = "\u001B[37m";
-
         System.out.println(CYAN + BOLD + "\n==================================================");
         System.out.println("  ____  _              ____         __ _   ");
         System.out.println(" |  _ \\(_)__________ _/ ___|  ___  / _| |_ ");
