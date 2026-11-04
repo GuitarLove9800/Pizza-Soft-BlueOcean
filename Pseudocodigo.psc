@@ -1,186 +1,225 @@
- Algoritmo Pizzeria
-Repetir
-		Mostrar "Menu"
-		Mostrar "1.Registrar cliente"
-		Mostrar "2.Realizar pedido"
-		Mostrar "3.Salir"
-		Mostrar "Seleccione una opcion"
+Algoritmo Pizzeria
+	Definir opcionMenu, opcionTamaños, cantidadPizza, opcionPizzas, agregarBebida, opcionBebida, tamañoBebida, cantidadBebida, agregarExtras, opcionExtras, cantidadExtras como Entero
+	Definir nombre, tipoTamaño, saborPizza, saborBebida, tipoBebida, saborExtras como Cadena
+	Definir tamañoProporcional, precioSabor, precioPizza, precioBebida, precioExtras, subtotal, descuento, iva, total como Real
+
+	// Inicializar variables opcionales para evitar errores si no se compran extras o bebidas
+	cantidadBebida <- 0
+	precioBebida <- 0
+	saborBebida <- "Ninguna"
+	tipoBebida <- "Ninguno"
+	cantidadExtras <- 0
+	precioExtras <- 0
+	saborExtras <- "Ninguno"
+	nombre <- "Mostrador"
+	
+	Repetir
+		Mostrar "====================================="
+		Mostrar "Pizza Soft by BlueOcean - Menú"
+		Mostrar "1. Registrar cliente"
+		Mostrar "2. Realizar pedido"
+		Mostrar "3. Salir"
+		Mostrar "Seleccione una opcion:"
 		Leer opcionMenu
 
 		Segun opcionMenu
-						//menu principal
 			Caso 1:
-				Mostrar "Registrar cliente"
-				Mostrar "Ingrese nombre"
+				Mostrar "===== REGISTRO DE CLIENTE ====="
+				Mostrar "Ingrese nombre:"
 				Leer nombre
+				
 			Caso 2: 
-				MOSTRAR "MENU"
-				//menu de tamaño de pizza
-				Mostrar "Tamaños"
-				Mostrar "1.	Pizzeta (20cm diámetro) = $32.65"
-				Mostrar "2.	Personal (25cm diámetro) = $51"
-				Mostrar "3.	Pequeña (30cm diámetro) = $73.47"
-				Mostrar "4.	Mediana (35cm diámetro) = $100"
-				Mostrar "5.	Grande (40cm diámetro) = $130.6"
-				Mostrar "6.	Jumbo (50cm diámetro) = $204.08"
-				Mostrar "Seleccione el numero de tamaño"
+				Mostrar "===== MENU DE PIZZAS ====="
+				Mostrar "Tamaños:"
+				Mostrar "1. Pizzeta (20cm diámetro)"
+				Mostrar "2. Personal (25cm diámetro)"
+				Mostrar "3. Pequeña (30cm diámetro)"
+				Mostrar "4. Mediana (35cm diámetro)"
+				Mostrar "5. Grande (40cm diámetro)"
+				Mostrar "6. Jumbo (50cm diámetro)"
+				Mostrar "Seleccione el numero de tamaño:"
 				Leer opcionTamaños
 					
-				//cantidad de pizzas
 				Mostrar "¿Cuántas pizzas?"
 				Leer cantidadPizza
 				
-				//asignacion del precio a pizza
+				// Unificamos la asignación de proporción y texto para evitar duplicar el Segun
 				Segun opcionTamaños 
-					Caso 1: precioPizza <- 32.65
-					Caso 2: precioPizza <- 51
-					Caso 3: precioPizza <- 73.47
-					caso 4: precioPizza <- 100 
-					Caso 5: precioPizza <- 130.6	
-					caso 6: precioPizza <- 204.08
-					Defecto: Mostrar "Opcion no valida"
+					Caso 1: 
+						tamañoProporcional <- 0.3265
+						tipoTamaño <- "Pizzeta (20cm diámetro)"
+					Caso 2: 
+						tamañoProporcional <- 0.51
+						tipoTamaño <- "Personal (25cm diámetro)"
+					Caso 3: 
+						tamañoProporcional <- 0.7347
+						tipoTamaño <- "Pequeña (30cm diámetro)"
+					Caso 4: 
+						tamañoProporcional <- 1
+						tipoTamaño <- "Mediana (35cm diámetro)"
+					Caso 5: 
+						tamañoProporcional <- 1.306
+						tipoTamaño <- "Grande (40cm diámetro)"	
+					Caso 6: 
+						tamañoProporcional <- 2.0408
+						tipoTamaño <- "Jumbo (50cm diámetro)"
+					De Otro Modo: 
+						Mostrar "Opcion no valida"
+						tamañoProporcional <- 1
+						tipoTamaño <- "Desconocido"
 				FinSegun
 				
-				Segun opcionTamaños 
-					Caso 1: tipoTamaño <- "Pizzeta (20cm diámetro)"
-					Caso 2: tipoTamaño <- "Personal (25cm diámetro)"
-					Caso 3: tipoTamaño <- "Pequeña (30cm diámetro)"
-					caso 4: tipoTamaño <- "Mediana (35cm diámetro)"
-					Caso 5: tipoTamaño <- "Grande (40cm diámetro)"	
-					caso 6: tipoTamaño <- "Jumbo (50cm diámetro)"
-					Defecto: Mostrar "Opcion no valida"
-				FinSegun
-				
-				//menu de sabor de pizza
-				Mostrar "Pizzas"
-				Mostrar "1. Pepperoni. Salsa de tomate, queso mozzarella, pepperoni"
-				Mostrar "2. Hawaiana. Salsa de tomate, queso mozzarella, jamón, piña"
-				Mostrar "3. Al pastor. Salsa de tomate, queso mozzarella, carne al pastor"
-				Mostrar "4. Cuatro quesos. Mozzarella, manchego, parmesano, queso azul"
-				Mostrar "5. Mexicana. Salsa de tomate, queso mozzarella, chorizo, jalapeño, cebolla"
-				Mostrar "6. BBQ Chicken. Salsa BBQ, mozzarella, pollo, cebolla"
-				Mostrar "7. Especial de la Casa. Salsa de tomate, mozzarella, pepperoni, jamón, tocino, champiñones, pimiento"
-				Mostrar "Seleccione el sabor de la pizza"
+				Mostrar "Sabores de Pizza:"
+				Mostrar "1. Pepperoni"
+				Mostrar "2. Hawaiana"
+				Mostrar "3. Al pastor"
+				Mostrar "4. Cuatro quesos"
+				Mostrar "5. Mexicana"
+				Mostrar "6. BBQ Chicken"
+				Mostrar "7. Especial de la Casa"
+				Mostrar "Seleccione el sabor de la pizza:"
 				Leer opcionPizzas
 				
-
-				//asignacion al sabor de pizza
+				// Unificamos sabor y precio en un solo bloque Segun con su respectivo De Otro Modo
 				Segun opcionPizzas
-					Caso 1:saborPizza<- "Pepperoni."
-					Caso 2:saborPizza<- "Hawaiana."
-					Caso 3:saborPizza<- "Al pastor."
-					Caso 4:saborPizza<- "Cuatro quesos."
-					Caso 5:saborPizza<- "Mexicana."
-					Caso 6:saborPizza<- "BBQ Chicken."
-					Caso 7:saborPizza<- "Especial de la Casa."
-					Defecto: MOSTRAR "No se encontro el sabor"	
+					Caso 1:
+						saborPizza <- "Pepperoni"
+						precioSabor <- 100
+					Caso 2:
+						saborPizza <- "Hawaiana"
+						precioSabor <- 500
+					Caso 3:
+						saborPizza <- "Al pastor"
+						precioSabor <- 133
+					Caso 4:
+						saborPizza <- "Cuatro quesos"
+						precioSabor <- 125
+					Caso 5:
+						saborPizza <- "Mexicana"
+						precioSabor <- 139
+					Caso 6:
+						saborPizza <- "BBQ Chicken"
+						precioSabor <- 146
+					Caso 7:
+						saborPizza <- "Especial de la Casa"
+						precioSabor <- 149
+					De Otro Modo: 
+						Mostrar "No se encontro el sabor"
+						saborPizza <- "Desconocido"
+						precioSabor <- 0
 				FinSegun
 				
-				//Bebidas
-				Mostrar "¿Desea agregar bebidas?, Escriba 1"
+				// Bebidas
+				Mostrar "¿Desea agregar bebidas? (Escriba 1 para Sí, otro número para No):"
 				Leer agregarBebida
-
 				Si (agregarBebida == 1) Entonces
-					//Menu de bebidas
-					Mostrar "Bebidas"
-					Mostrar "1.	De sabor"
-					MOSTRAR "2.	Coca Cola"
-					MOSTRAR "3.	Agua"
-					Mostrar "Seleccione una bebida"
+					Mostrar "Bebidas:"
+					Mostrar "1. De sabor"
+					Mostrar "2. Coca Cola"
+					Mostrar "3. Agua"
+					Mostrar "Seleccione una bebida:"
 					Leer opcionBebida
 					
-					//asignacion de sabor de bebida
 					Segun opcionBebida
-						Caso 1:saborBebida<- "De sabor"
-						Caso 2:saborBebida<- "Coca Cola"
-						Caso 3:saborBebida<- "Agua"
-						Defecto: Mostrar "No disponible"
+						Caso 1: saborBebida <- "De sabor"
+						Caso 2: saborBebida <- "Coca Cola"
+						Caso 3: saborBebida <- "Agua"
+						De Otro Modo: saborBebida <- "No disponible"
 					FinSegun
 					
-					Mostrar "Tamaños de bebida"
-					Mostrar "1.	600 ml"
+					Mostrar "Tamaños de bebida:"
+					Mostrar "1. 600 ml"
 					Mostrar "2. 2 L"
 					Leer tamañoBebida
 					
-					//asignacion de precio de bebida
-					Segun TamañoBebida
-						Caso 1:precioBebida<- 12
-						Caso 2:precioBebida<- 40
-						Defecto: Mostrar "No disponible"
+					Segun tamañoBebida
+						Caso 1: 
+							precioBebida <- 12
+							tipoBebida <- "600ml"
+						Caso 2: 
+							precioBebida <- 40
+							tipoBebida <- "2L"
+						De Otro Modo: 
+							Mostrar "No disponible"
+							precioBebida <- 0
+							tipoBebida <- "N/A"
 					FinSegun
 
-					Segun TamañoBebida
-							Caso 1: tipoBebida<-"600ml"
-							Caso 2: tipoBebida<-"2L"
-					FinSegun
-
-					//cantidad de bebida
 					Mostrar "¿Cuantas bebidas?"
 					Leer cantidadBebida
-					
 				FinSi
 				
 				// Extras
-				Mostrar "¿Desea agregar extras?, Escriba 1"
+				Mostrar "¿Desea agregar extras? (Escriba 1 para Sí, otro número para No):"
 				Leer agregarExtras
 				
 				Si (agregarExtras == 1) Entonces
-					//Menu de extras
-					Mostrar "Extras"
-					Mostrar "1.	Pan de ajo"
-					MOSTRAR "2.	Dedos de queso"
-					Mostrar "Seleccione una bebida"
+					Mostrar "Extras:"
+					Mostrar "1. Pan de ajo"
+					Mostrar "2. Dedos de queso"
+					Mostrar "Seleccione un extra:"
 					Leer opcionExtras
-
+					
 					Segun opcionExtras
-						Caso 1:saborExtras<- "Pan de ajo"
-						Caso 2:saborExtras<- "Dedos de queso"
-						Defecto: Mostrar "No disponible"
-					FinSegun
-
-					//asignacion de precio extras
-					Segun opcionExtras
-						Caso 1:precioExtras<- 31
-						Caso 2:precioExtras<- 39
-						Defecto: Mostrar "No disponible"
+						Caso 1: 
+							saborExtras <- "Pan de ajo"
+							precioExtras <- 31
+						Caso 2: 
+							saborExtras <- "Dedos de queso"
+							precioExtras <- 39
+						De Otro Modo: 
+							saborExtras <- "No disponible"
+							precioExtras <- 0
 					FinSegun
 					
-					//cantidad de extras
-					Mostrar "¿Cuantos?"
+					Mostrar "¿Cuantos extras?"
 					Leer cantidadExtras
 				FinSi
 					
-				//formulas
-				subtotal<- cantidadPizza*precioPizza + cantidadBebida*precioBebida + cantidadExtras*precioExtras
-				Mostrar "Llevas $" subtotal
+				// Fórmulas matemáticas
+				precioPizza <- precioSabor * tamañoProporcional
+				subtotal <- (cantidadPizza * precioPizza) + (cantidadBebida * precioBebida) + (cantidadExtras * precioExtras)
 				
-				descuento = .20
-				iva = .16
+				descuento <- 0.20
+				iva <- 0.16
 				
 				Si cantidadPizza >= 2 Entonces
-					total = subtotal*(1-descuento)*(1+iva )
+					total <- subtotal * (1 - descuento) * (1 + iva)
 				SiNo
-					total = subtotal*(1+iva)
+					total <- subtotal * (1 + iva)
 				FinSi
 				
+				// Imprimir ticket de venta (Colocado aquí para que se imprima al terminar el pedido)
+				Mostrar "====================================="
+				Mostrar "  TICKET DE VENTA - PIZZA SOFT       "
+				Mostrar "====================================="
+				Mostrar "Cliente: ", nombre
+				Mostrar "Pizza: ", saborPizza, " ", tipoTamaño, " - Unitario: $", precioPizza
+				Mostrar "Cantidad de pizzas: ", cantidadPizza
+				Si agregarBebida == 1 Entonces
+					Mostrar "Bebida: ", saborBebida, " (", tipoBebida, ") - Unitario: $", precioBebida
+					Mostrar "Cantidad de bebida: ", cantidadBebida
+				FinSi
+				Si agregarExtras == 1 Entonces
+					Mostrar "Extra: ", saborExtras, " - Unitario: $", precioExtras
+					Mostrar "Cantidad de extras: ", cantidadExtras
+				FinSi
+				Mostrar "-------------------------------------"
+				Mostrar "Subtotal: $", subtotal
+				Si cantidadPizza >= 2 Entonces
+					Mostrar "Descuento aplicado: 20%"
+				SiNo
+					Mostrar "Descuento aplicado: $0.0"
+				FinSi
+				Mostrar "IVA (16% incluido/calculado)"
+				Mostrar "Total a pagar: $", total
+				Mostrar "====================================="
 				
-				Caso 3: Mostrar "Gracias por usar el sistema"
-			Defecto: Mostrar "Opcion no valida"
+			Caso 3: 
+				Mostrar "¡Gracias por usar el sistema de Pizza Soft!"
+				
+			De Otro Modo: 
+				Mostrar "Opción no válida, intente de nuevo."
 		FinSegun
-Hasta que opcionMenu == 3
-	
-	//Imprimir ticket
-	Mostrar "Pizza Soft by BlueOcean-Sistema de Ventas para una Pizzería"
-	Mostrar "Nombre del cliente " nombre
-	Mostrar "Pizza " saborPizza, tipoTamaño," $" precioPizza
-	Mostrar "Numero de pizzas " cantidadPizza
-	Mostrar "Bebida " saborBebida, " " tipoBebida, " $" precioBebida
-	Mostrar "Cantidad de bebida " cantidadBebida
-	Mostrar "Extras " saborExtras, " $" precioExtras
-	Mostrar "Numero de extras " cantidadExtras
-	Mostrar "Subtotal $" subtotal
-	Mostrar "Descuento " descuento
-	Mostrar "IVA " iva
-	Mostrar "Total $" total
-
+	Hasta Que opcionMenu == 3
 FinAlgoritmo
