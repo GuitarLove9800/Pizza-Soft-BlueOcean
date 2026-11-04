@@ -196,6 +196,69 @@ public class pizzeria {
         return op;
     }
 
+    //el precio de la bebida
+    static double valorBebida(int tamañoBebida) {
+        switch (tamañoBebida) {
+            case 1: return 12;
+            case 2: return 40;
+            default: return 0;
+        }
+    }
+
+    //el tamaño que se ve en el ticket
+    static String tipodeBebida(int tamañoBebida) {
+        switch (tamañoBebida) {
+            case 1: return "600ml";
+            case 2: return "2L";
+            default: return "N/A";
+        }
+    }
+
+    //cantidad de bebidas
+    static int pedirCantidadBebida() {
+        System.out.print("¿Cuantas bebidas?: ");
+        while (!sc.hasNextInt()) {
+            System.out.print("Ingrese número válido: ");
+            sc.next();
+        }
+        int cantidad = sc.nextInt();
+        sc.nextLine();
+        return cantidad;
+    }
+
+    //menu de extras
+    static int menuExtras() {
+        System.out.println("Extras:");
+        System.out.println("1. Pan de ajo");
+        System.out.println("2. Dedos de queso");
+        System.out.print("Seleccione un extra: ");
+        while (!sc.hasNextInt()) {
+            System.out.print("Entrada inválida: ");
+            sc.next();
+        }
+        int op = sc.nextInt();
+        sc.nextLine();
+        return op;
+    }
+
+    //el nombre que se muestra en el titulo
+        public static String nombreExtras(int opcionExtras) {
+        switch (opcionExtras) {
+            case 1: return "Pan de ajo";
+            case 2: return "Dedos de queso";
+            default: return "No disponible";
+        }
+    }
+
+    //precio de los extras
+    static double valorExtra(int opcionExtras) {
+        switch (opcionExtras) {
+            case 1: return 31;
+            case 2: return 39;
+            default: return 0;
+        }
+    }
+
 
 
 
