@@ -1,4 +1,5 @@
 # Desarrollo del proyecto
+
 **Equipo 2:** Pablo Antonio Duarte, Emmanuel Alexander Poot, Isabella Medina 
 
 ## Fase 1. Análisis y planeación del proyecto.
@@ -15,164 +16,140 @@ Se desea registrar los pedidos; seleccionando los productos: tamaños, pizzas, e
 Desarrollar un programa que permita tomar pedidos en una pizzería, calcular los descuentos, IVA y generar un ticket de compra.
 
 ### 1.4 Módulos / Función
+| Módulo | Función | Estado en Código |
+| :--- | :--- | :--- |
+| **Inicio** | Menú de Inicio, Bienvenida con Arte ASCII, Menú Principal | ✅ Implementado |
+| **Cliente** | Registrar los datos del cliente (Nombre) | ✅ Implementado |
+| **Menú** | Mostrar el menú de la pizzería: Tamaño, Pizzas, Bebidas, Extras | ✅ Implementado |
+| **Proceso Principal** | Registrar los productos agregados por el cliente. | ✅ Implementado |
+| **Cálculos** | Obtener subtotal, descuentos, extras, IVA, total a pagar | ✅ Implementado |
+| **Reporte** | Mostrar el ticket estilizado con ANSI | ✅ Implementado |
 
-| Módulo | Función |
-| :--- | :--- |
-| **Inicio** | Menú de Inicio, Bienvenida, ¿Desea Iniciar el Programa?, Menú Principal: Iniciar pedido |
-| **Cliente** | Registrar los datos de cliente: Folio de Servicio, Nombre de cliente |
-| **Menú** | Mostrar el menú de la pizzería: Tamaño, Pizzas, Bebidas, Extras |
-| **Proceso Principal** | Registrar los productos agregados por el cliente. |
-| **Cálculos** | Obtener subtotal, descuentos, extras, IVA, total a pagar |
-| **Reporte** | Mostrar el ticket |
+---
 
 ### 1.5 Entradas del sistema
-* Nombre del cliente.
-* Tipo de Pizza
-* Tamaño de Pizza
-* Tipo de Bebida
-* Tamaño de Bebida
-* Extras
-* Cantidad de pizzas
-* Cantidad de bebidas
-* Cantidad de extras
+- Nombre del cliente.
+- Tipo / Sabor de Pizza
+- Tamaño de Pizza
+- Tipo de Bebida
+- Tamaño de Bebida
+- Extras
+- Cantidad de pizzas
+- Cantidad de bebidas
+- Cantidad de extras
 
 ### 1.6 Procesos del sistema
-1. Iniciar programa
-2. Iniciar pedido
-3. Registrar Nombre
-4. Guardar productos seleccionados
-5. Calcular subtotal
-6. Calcular si aplica promoción (descuento): Si se piden 3 pizzas o más.
-7. Calcular IVA
+1. Mostrar bienvenida e iniciar programa
+2. Desplegar Menú Principal
+3. Registrar Nombre del cliente
+4. Guardar productos seleccionados (Pizzas, Bebidas, Extras)
+5. Calcular subtotal de consumo
+6. Calcular si aplica promoción (descuento del 20% si pide 2 o más pizzas)
+7. Calcular IVA (16%)
 8. Obtener el total de la compra
-9. Preparar información del comprobante
+9. Generar y mostrar Ticket de compra estilizado
 
 ### 1.7 Salidas del sistema
-* Folio de pedido
-* Nombre del cliente
-* Productos seleccionados 
-* Subtotal
-* Descuento (si se aplica o no)
-* Impuesto IVA
-* Total a pagar
-* Ticket o comprobante
+- Nombre del cliente
+- Productos seleccionados 
+- Subtotal
+- Descuento aplicado
+- Impuesto IVA (16%)
+- Total a pagar
+- Ticket o comprobante con formato ANSI y arte ASCII
 
-### 1.8 Variables Principales
+---
+
+### 1.8 Variables Principales y su Mapeo en Código
 
 | Variable | Tipo de Dato | Descripción |
 | :--- | :--- | :--- |
-| `folioServicio` | int | Numero de servicio realizado |
-| `clientName` | String | Nombre del cliente |
-| `opcionMenu` | int | Opción seleccionada para navegar por el menú |
-| `continuarPedido` | int | Decide si agregar mas productos a los bucles |
-| `typePizza` | String | Tipo de pizza |
-| `sizePizza` | String | Tamaño de Pizza |
-| `cantPizza` | int | Cantidad de unidades solicitadas de una pizza específica |
-| `precioUnitarioPizza` | double | Precio individual asignado a la pizza según su tamaño y especialidad |
-| `totalPizzasAcomuladas` | int | Contador total de pizzas compradas |
-| `typeDrink` | String | Nombre de la bebida seleccionada |
-| `sizeDrink` | String | Presentación o tamaño de la bebida seleccionada |
-| `cantBebidas` | int | Cantidad de bebidas compradas |
-| `precioUnitarioBebida` | double | Precio Individual |
-| `typeExtra` | String | Nombre del producto complementario |
-| `cantExtra` | String | Cantidad de unidades seleccionadas de un extra |
-| `precioUnitarioExtra` | double | Precio individual asignado |
-| `subtotal` | double | Acumulador monetario de la suma de los productos |
-| `porcentajeDescuento` | double | Porcentaje de descuento aplicable |
-| `descuento` | double | Monto en pesos descontado |
-| `TASA_IVA` | Final double | Constante del impuesto |
-| `iva` | double | Monto en dinero del impuesto |
-| `totalPagar` | double | Importe final |
+| `nombre` | String | Nombre del cliente registrado |
+| `opcionMenu` | int | Opción seleccionada para navegar por el menú principal |
+| `opcionTamaños` | int | Opción seleccionada del tamaño de pizza |
+| `tamañoProporcional` | double | Factor multiplicador según el tamaño de pizza |
+| `tipoTamaño` | String | Descripción del tamaño de pizza elegido |
+| `cantidadPizza` | int | Cantidad de unidades de pizza solicitadas |
+| `opcionPizzas` | int | Opción de sabor de pizza |
+| `precioSabor` | double | Precio base del sabor de la pizza |
+| `precioP` | double | Precio unitario final calculado de la pizza |
+| `sabor` | String | Nombre del sabor de pizza elegido |
+| `agregarBebida` | int | Bandera de control (1 para sí, otro número para no) |
+| `opcionBebida` | int | Opción de tipo de bebida |
+| `saborBebida` | String | Nombre de la bebida |
+| `tamañoBebida` | int | Opción de tamaño de bebida (600ml / 2L) |
+| `tipoBebida` | String | Descripción del tamaño de la bebida |
+| `precioBebida` | double | Precio de la bebida seleccionada |
+| `cantidadBebida` | int | Cantidad de bebidas |
+| `agregarExtras` | int | Bandera de control para extras (1 para sí) |
+| `opcionExtras` | int | Opción del extra seleccionado |
+| `saborExtras` | String | Nombre del extra |
+| `precioExtras` | double | Precio unitario del extra |
+| `cantidadExtras` | int | Cantidad de extras solicitados |
+| `sub` | double | Subtotal monetario de la suma de consumos |
+| `descuento` | double | Porcentaje de descuento fijo (0.20) |
+| `montoDescuento` | double | Monto en dinero descontado |
+| `ivaMonto` | double | Monto en dinero del impuesto IVA (16%) |
+| `total` | double | Importe final a pagar |
+
+---
 
 ### 1.9 Algoritmo General del sistema
 ```text
 INICIO
-    Mostrar menú de inicio 
-    Mostrar menú principal
-    Solicitar datos del cliente
-    Mostrar menú de proceso
-    Tomar pedido
-    Registrar la cantidad de cada producto
-    Calcular el subtotal de pedido
-    Aplicar descuento
-    Calcular IVA
-    Tener el total de la compra
-    Mostrar resumen de pedido
-    Generar ticket de compra
+
+    Mostrar bienvenida y arte ASCII
+    Bucle Principal (Do-While):
+        Mostrar menú principal
+        Si opción == 1 -> Registrar nombre del cliente
+        Si opción == 2 -> 
+            Seleccionar Tamaño y Cantidad de Pizza
+            Seleccionar Sabor de Pizza
+            Preguntar y registrar Bebidas (opcional)
+            Preguntar y registrar Extras (opcional)
+            Calcular Subtotal
+            Evaluar Descuento (Si cantidad de pizzas >= 2)
+            Calcular IVA (16%)
+            Calcular Total
+            Imprimir Ticket detallado
+        Si opción == 3 -> Salir del sistema
 FIN
 ```
 
-### 1.10 Diseño básico de menú y de comprobante en consola
+### 1.10 Diseño actual de menú y de comprobante en consola
 
-#### Menú de inicio 
+#### Menú principal (Actual)
 ```text
--------------------------------------------------
-
-| Bienvenido al sistema de inicio de Pizza Soft |
-| ¿Desea iniciar programa? Presione “1”         |
--------------------------------------------------
+=====================================
+═════════════════════════════════════════════
+Pizza Soft by BlueOcean - Menú
+ 1 · Registrar CLiente 
+ 2 · Realizar Pedido
+ 3 · Salir 
+· Seleccione un Opción · 
 ```
 
-#### Menú principal
+#### Ejemplo del ticket o comprobante (Actual)
 ```text
----------------------------
-
-| Pizza Soft by BlueOcean |
-| 1. Registrar cliente    |
-| 2. Realizar pedido      |
-| 3. Salir                |
----------------------------
-```
-
-#### Menú de Proceso: Nuevo pedido
-
-**Cantidad de pizzas:**
-
-* **Tamaños:**
-  * Pizzeta (20cm diámetro) = 32.65%
-  * Personal (25cm diámetro) = 51%
-  * Pequeña (30cm diámetro) = 73.47%
-  * Mediana (35cm diámetro) = 100%
-  * Grande (40cm diámetro) = 130.6%
-  * Jumbo (50cm diámetro) = 204.08%
-
-* **Pizzas:**
-  * **Pepperoni = \$100** (Salsa de tomate, queso mozzarella, pepperoni)
-  * **Hawaiana = \$500** (Salsa de tomate, queso mozzarella, jamón, piña)
-  * **Al pastor = \$133** (Salsa de tomate, queso mozzarella, carne al pastor)
-  * **Cuatro quesos = \$125** (Mozzarella, manchego, parmesano, queso azul)
-  * **Mexicana = \$139** (Salsa de tomate, queso mozzarella, chorizo, jalapeño, cebolla)
-  * **BBQ Chicken = \$146** (Salsa BBQ, mozzarella, pollo, cebolla)
-  * **Especial de la Casa = \$149** (Salsa de tomate, mozzarella, pepperoni, jamón, tocino, champiñones, pimiento)
-
-**Cantidad de bebidas:**
-
-| Bebida | Tamaño / Precio |
-| :--- | :--- |
-| De sabor, Coca Cola, Agua | 600 ml = \$12 <br> 2 L = \$40 |
-
-**Extras:**
-* Pan de ajo = \$31
-* Dedos de queso = \$39
-
-*Seleccione una opción:*
-
-#### Ejemplo del ticket o comprobante
-```text
-========================================================================
-                        Pizza Soft by BlueOcean
-Folio de pedido: 24             Nombre del cliente: Amairani Pechuga de Pollo
-------------------------------------------------------------------------
--Pizza_Pepperoni_Pequeña....................\$00.00
--Agua_2L....................................\$00.00
-------------------------------------------------------------------------
-Extra: 
--Dedos de queso.............................\$00.00
-------------------------------------------------------------------------
-Subtotal: ..................................\$00.00
-Descuento: .................................\$00.00
-IVA: .......................................\$00.00
-Total: .....................................\$00.00
-                                                 ¡Gracias por su compra!
-========================================================================
-```
+==================================================
+   ____  _             ____         __ _    
+  |  _ \(_)__________ _/ ___|  ___  / _| |_ 
+  | |_) | |_  /_  / _` \___ \ / _ \| |_| __|
+  |  __/| |/ / / / (_| |___) | (_) |  _| |_ 
+  |_|   |_/__/___\\__,_|____/ \___/|_|  \__| 
+         S I S T E M A   D E   V E N T A S     
+==================================================
+ Cliente: Mostrador
+--------------------------------------------------
+ DETALLE DE CONSUMO:
+ • Pizza: Pepperoni Mediana (35cm diámetro)
+   Cant: 1 | P.Unit: $100.00
+--------------------------------------------------
+ Subtotal:          $100.00
+ Descuento:        -$0.00
+ IVA (16%):         $16.00
+==================================================
+ TOTAL A PAGAR:     $116.00
+==================================================
+        ¡Gracias por su compra en Pizza Soft!      
+==================================================
