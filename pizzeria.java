@@ -1,16 +1,89 @@
 import java.util.Scanner;
 public class pizzeria {
-        static Scanner sc = new Scanner(System.in);// declare Scanner como variable global ---- 
+    static Scanner sc = new Scanner(System.in);// declare Scanner como variable global ---- 
 
     // * Estilos de Comentarios
-        // Comentario Normal
-        // ! Este método quedará obsoleto en la próxima versión
-        // ! ERROR / ALERTA: No modificar este bloque sin autorización del equipo
-        // ? ¿Deberíamos cachear esta respuesta aquí?
-        // TODO: implementar validación de token 
-        // // const valorViejo = 10;
+    // Comentario Normal
+    // ! Este método quedará obsoleto en la próxima versión
+    // ! ERROR / ALERTA: No modificar este bloque sin autorización del equipo
+    // ? ¿Deberíamos cachear esta respuesta aquí?
+    // TODO: implementar validación de token 
+    // // const valorViejo = 10;
 
-
+     // Códigos ANSI para dar color en la terminal
+    public static final String RESET = "\u001B[0m";
+    public static final String ROJO = "\u001B[31m";
+    public static final String NARANJA = "\u001B[38;5;208m"; // Naranja brillante
+    public static final String AMARILLO = "\u001B[33m";
+    public static final String CYAN = "\u001B[36m";
+    public static final String VERDE = "\u001B[32m";
+    //? Mostrar Bienvenida-----
+    static void mostrarBienvenida(){
+        System.out.println(NARANJA + "        .=@@@@@@@:.@@@@@.                                                                                      " + RESET);
+        System.out.println(NARANJA + "    :=%@@@%######@@@###@@#                                                                                     " + RESET);
+        System.out.println(NARANJA + "  .#@@@*++++++++++*++++%@#            .*=.   :#%@@@@@@##                                                        " + RESET);
+        System.out.println(NARANJA + "  :@@*++++++++++++++@@@@@:%@@@@@@@@@@@@@@@@@@@@@@@%*++++#%@@*.                                                 " + RESET);
+        System.out.println(NARANJA + "  :@@*+++++++#*++++++*#@@@%###+++*##@##+++++++++*++++++++++#@@-                                                " + RESET);
+        System.out.println(NARANJA + "  :@@*+++++%@@%++++++++++++++++++++++++++++++++++++++%#+++++#@%.                                               " + RESET);
+        System.out.println(NARANJA + "  :@@*+++++%@%*++++++++++++++++++++++++++#+++++++#@@@@@#++++*@@-                ...                            " + RESET);
+        System.out.println(NARANJA + "  :@@*+++++*++++++++++++##@@@++++++@@@@@#+++++#@@@@##++++++++#@@          .=++%@@@@@@@@@@@@@@*++:              " + RESET);
+        System.out.println(NARANJA + "  :@@*++++++++++++%+++++@@@#+++++#@@@@@*+++++#@@%++++++++++++#@@        .*%@@%+:::...........::::%@@@%#.       " + RESET);
+        System.out.println(NARANJA + "  .*@%+++++++++#@@@+++++@@#+++++#@@@@%*+++++#@@%+++++*@@*+++++%@@     :@@%#:..:=**++++++*********=::..-##@@#-.   " + RESET);
+        System.out.println(NARANJA + "   -@@++++++@@@@@@@+++++@++++++%@@@@%++++++%@@@+++++*##*++++++%@@ .+@@=..-=++++=+++=++++++++++++++*++=-..:=#@@+= " + RESET);
+        System.out.println(NARANJA + "   -@@++++++@@* *@@+++++++++++@%++++++++++++++++++++++++++++++%@@:@@-.--=++++++++++++++++++=+++++==++++++*=...=@@%:" + RESET);
+        System.out.println(NARANJA + "   -@@++++++@@*  #@%++++++++++++++++++++++++++++**+++++*%*+++#@@-@#:.:-----========+++++++++++++++++++++++++*=:.:+%@+:" + RESET);
+        System.out.println(NARANJA + "   .*@%++++#@@+  -@@#++##+++++++###@@#######%@@@@@@@@@@@@@@@@@@=@%:.::::::-----====--==========++++++++++++++++*-..=%@#:" + RESET);
+        System.out.println(NARANJA + "    +@@@++#@@%     @@@@@@@@@@@@@@@@*@@@@@@@@*.         -:  +@#.:::...........:-====----=======+++++++++++++++=*...+@@" + RESET);
+        System.out.println(NARANJA + "      +@@@@#=                                       .*@@+.:-%%############+-::--==---=====++++++++++++++++==:..+@%:" + RESET);
+        System.out.println(NARANJA + "                                                    :%@=..:-+#%%%%%##%%%%######+=.:-===---+=======+++++++=++++=...=@#:" + RESET);
+        System.out.println(NARANJA + "                                                   :@@-:---:::.=##%%%%%%%%%%%%#####:..--===::======+++++++++++==*..:*@*" + RESET);
+        System.out.println(NARANJA + "                                               :%@%=.:-=-::--::-##%##%%%%%%%%%%%%%##*-:.:----:--=====+++++++++==+*:.=@@-" + RESET);
+        System.out.println(NARANJA + "                                            .#@@=..:---------::.+%%%%%#-----:#%##%%%%%#+-..-:--.:-=====+++++++++=-==:.@%=" + RESET);
+        System.out.println(NARANJA + "                                           .%@*..:--:---=--==-.:.*%#%#=::::::.*%##%%%%%%###+...:::::.-=====+++++++=---..+@=" + RESET);
+        System.out.println(NARANJA + "                                          :#@*..:-------------.::+%%%#*+#######%%####%########*=..::::..-====+++=+++=---..=@*" + RESET);
+        System.out.println(NARANJA + "                                         :%@-.:-----------:--::.*#%%%%%%%%%%%%%%%####%##%%%#####*=..::::::====+++++++=--=:.+@%" + RESET);
+        System.out.println(NARANJA + "                                         :@*:.-----:::-------::.##%%%##%%%#%%%###+.........*##%%###*-.::.:::=====++++++==-=:.*@%" + RESET);
+        System.out.println(NARANJA + "                                        -%@#::--:===------:-:::=#%%%%%%%%%%%#=-::---------::::::=#%###=..-:::::===+++++++==--:.+@*" + RESET);
+        System.out.println(NARANJA + "                                      -%@+:.=::::-------:::.:*%%%%%%%###%%=::---------------:-:.:.:#%##*+..::::::===+=++++=-:-..#@+" + RESET);
+        System.out.println(NARANJA + "                                     =@#::%%%##+:::..:::-*#%%%%%%####%%#+.:--::------=----------:::.#%%%#+..::::::======+++=--:.:@%:" + RESET);
+        System.out.println(NARANJA + "                                   :@%-.+%%%%%%%######%#%%##=++-:.-##%%=:--:-----------------:---:::=#####*-.:::::-==========-::.-@-" + RESET);
+        System.out.println(NARANJA + "                                  +@@:-%%%##%##%%%%%%%%%%##*:---:::##%::---:=------:::::::--=----.:::###%+##=.:::::-=-=======--:.-%@:" + RESET);
+        System.out.println(NARANJA + "                                 =@#.-%%###%#*+....::..=*##.::::*##%##.--------------------------:::=##%%#+###..::---:--::--==-::.+@:" + RESET);
+        System.out.println(NARANJA + "                               .*@*.+%###%=-::---------:.+##++#%%%%%##.:--::-----------:----::--:::.#%%##%#*=##-.:::::-::.:===+-:.+@:" + RESET);
+        System.out.println(NARANJA + "                              -@@+.#%##%-.----==--------:.*#%%%%%%#%%#.::-:--=-----------------:.:.#%%%%%%%#-*#*-.::..=***######+.=@:" + RESET);
+        System.out.println(NARANJA + "                            .%@*.-#%%%+.:-------------:::.*#%%%%%%%%%##+:-------------==----::.::+##%+:=:.##*:*#*-.=*##%#%##%%%*-.*@:" + RESET);
+        System.out.println(NARANJA + "                           =@%.:#*+#%*.:-------------::.:.*%%%%##%%%%%%##+:.:-----------:::::..+##%##=..=+%###==+.+*####%%%%%%%=.+@=" + RESET);
+        System.out.println(NARANJA + "                         .@@=.:%#=+#%*.:-:+====-:---::::.+%%%##%%%%%##%%%#####*-..........-*#%%%%%#%%%%%%%%%#%.++:+###%##%%##*:.@@+" + RESET);
+        System.out.println(NARANJA + "                        -@%=:#%+=##%%#+:::---::-:::.::.=%%%%%%%%##*+*#%##%%%%%%%%%%%%%%%%%%%%%##%%%%%%%%#+-+**#*++-..+++**+=.:+@@=" + RESET);
+        System.out.println(NARANJA + "                       =@%.-#%#%%%%%%###+...::::...-+%%%%%%%%%+-:::-::::=#%##%%%#:--:=##%%##%###+=+*-+###*###**::...:......*#@@-" + RESET);
+        System.out.println(NARANJA + "                      +@*.-%#####%%%%%%%%########@@%%%%##%%%#-:----:----:=#%%%#+:::..+##%%%%###*+#*=....:==-...-@@@@@@@@@@@%=" + RESET);
+        System.out.println(NARANJA + "                    .*@-.+%*-:::#%%%%%######%%%%%%%%%%%%%%%#---=-:------:.+#%%%%#%%%#*+++####*-==.-=%@@@#++#@@@*=" + RESET);
+        System.out.println(NARANJA + "                    #@=.%%#*+++#%%#%##%%#%%%%%%#%#=-=--=###*.:-=---:--:-:-*#%%%%%%######**+++*=:.*@#:::::::::." + RESET);
+        System.out.println(NARANJA + "                   @@+.#%#%%%%%*:..:::::...*#%%%#+---::-###*.---:------:+#####**+=............-@@%.               *@@@@@@@@=@%:" + RESET);
+        System.out.println(NARANJA + "                  %@+.*%##%#*:.::::--===-::::+%%#..:-####%%%*-:-::::--#####*-.:==#@@@@@@@@@@@@#=                .+@@##++++#@@%%@@=" + RESET);
+        System.out.println(NARANJA + "                 +@%.=%%##*:::-----::---:-:::.:######%%%##%%%%#*#######*#*-.:@@+:::                         #@@*++++++++++++@@+" + RESET);
+        System.out.println(NARANJA + "                =%@.:%%%#.::--=----------::-:::.%%##%%%%##%%%%%%%####*##*-.#@#          .%@@@@@@@@**@@@@*. @@@#+++++++++++++@@#." + RESET);
+        System.out.println(NARANJA + "               .*@:.@%%=.:----=------:-----:-.:.#%###%###%%%%###==-:-=--.-#@+          .#@@#*+++++@@@####%@@@@%++++#@#++++++*@@@@@+" + RESET);
+        System.out.println(NARANJA + "               -@=.#%%=:--------:----------=-::.###%%%%%%%%%%#==:.:#%##%%@=           .@@#++++++++%++++++++%@@%++++%+++++++++++++%@@" + RESET);
+        System.out.println(NARANJA + "              :@*:=%#+.:--:----------------=:...####%%%###%%#=:.:@@#===                 @@#++++++%@+++++++++++*%++++++++++++++++++#@@#" + RESET);
+        System.out.println(NARANJA + "             +@#:=%%#=.---:-----------------::.*######%%%%%#=:.*@*                      @@#+++++#@+++++*@%++++++++++++++++++++%@@@@*:" + RESET);
+        System.out.println(NARANJA + "            #@#.=%%%#=.-----::-------::---.:.-*####**######==.+@@                       @@@*+++++%+++++%@@%+++++++++++*%*+++++%@%." + RESET);
+        System.out.println(NARANJA + "           .#@..+%%%%#=.:-:=-----:::::-=--:::+#*++-+****##**=.=@#.                      .%@@*+++++++++#@@@%++++++++++@@@*+++++%@% " + RESET);
+        System.out.println(NARANJA + "          .#@:.%%##%#%#-.:-:-----:--==-:::=#*+=..:++:.--+=-..*@*.                       -%@@+++++++++%@@%++++++++++@@@*++++#@@  " + RESET);
+        System.out.println(NARANJA + "          -@=.%%%%%%%%%#*.::-----------=**#+=..#@@@@@@%#-=%%@#                          %@@@@++++++++++%@@%++++%+++++@@@*++++*@@%%%%:" + RESET);
+        System.out.println(NARANJA + "         .%@=.%%%%%%%%%%###:::::::--=#####+=.+@#      .****.                            #@@#++++++++*+++++++++++*@*++++@@@*++++++%%%%@@@" + RESET);
+        System.out.println(NARANJA + "         .@#:*%%##%%#%%%%%%%%##########=*+-.*@+                                         #@@+++++++*%@@+++++++++#@@%++++@@@@++++++++++#@@" + RESET);
+        System.out.println(NARANJA + "         %@+.+%%#%%%%########++=+=:...+++:.@@+                                           @@@@@@@@@@@@@@#+++*@@@@@@@@@@@*+@@@+++++++#@@@" + RESET);
+        System.out.println(NARANJA + "        #@+.+#%%%%%######*+-...::....:..:=%@=                                             .******=    *#@@@@@%*. .*****    +*@@@@@@@%*" + RESET);
+        System.out.println(NARANJA + "        .%%.-#####%%@#***-.-#@@@@@@@@%%@@@*-                                                                                          " + RESET);
+        System.out.println(NARANJA + "        *@%.=##%%%%%##--..%@*                                                                                                          " + RESET);
+        System.out.println(NARANJA + "        .@%.:+###%###*.-.#@                                                                                                            " + RESET);
+        System.out.println(NARANJA + "         :@%=....:==:.=.+@%                                                                                                            " + RESET);
+        System.out.println(NARANJA + "           =%@@@@*.....-%@.                                                                                                            " + RESET);
+        System.out.println(NARANJA + "               .*@@%%@@#.                                                                                                              " + RESET);
+        System.out.println(NARANJA + "                   .:::                                                                                                                " + RESET);
+        System.out.println(AMARILLO + "\n\t\t\t\t\t¡BIENVENIDO A PIZZA SOFT BY BLUEOCEAN!\n" + RESET);
+    }
 
 
 // ? ---------------------Funciones---------------------------------------------------------------------------------------------------
@@ -196,7 +269,159 @@ public class pizzeria {
         return op;
     }
 
+    //el precio de la bebida
+    static double valorBebida(int tamañoBebida) {
+        switch (tamañoBebida) {
+            case 1: return 12;
+            case 2: return 40;
+            default: return 0;
+        }
+    }
 
+    //el tamaño que se ve en el ticket
+    static String tipodeBebida(int tamañoBebida) {
+        switch (tamañoBebida) {
+            case 1: return "600ml";
+            case 2: return "2L";
+            default: return "N/A";
+        }
+    }
+
+    //cantidad de bebidas
+    static int pedirCantidadBebida() {
+        System.out.print("¿Cuantas bebidas?: ");
+        while (!sc.hasNextInt()) {
+            System.out.print("Ingrese número válido: ");
+            sc.next();
+        }
+        int cantidad = sc.nextInt();
+        sc.nextLine();
+        return cantidad;
+    }
+
+    //menu de extras
+    static int menuExtras() {
+        System.out.println("Extras:");
+        System.out.println("1. Pan de ajo");
+        System.out.println("2. Dedos de queso");
+        System.out.print("Seleccione un extra: ");
+        while (!sc.hasNextInt()) {
+            System.out.print("Entrada inválida: ");
+            sc.next();
+        }
+        int op = sc.nextInt();
+        sc.nextLine();
+        return op;
+    }
+
+    //el nombre que se muestra en el titulo
+        public static String nombreExtras(int opcionExtras) {
+        switch (opcionExtras) {
+            case 1: return "Pan de ajo";
+            case 2: return "Dedos de queso";
+            default: return "No disponible";
+        }
+    }
+
+    //precio de los extras
+    static double valorExtra(int opcionExtras) {
+        switch (opcionExtras) {
+            case 1: return 31;
+            case 2: return 39;
+            default: return 0;
+        }
+    }
+
+    //cantidad de extras
+    static int pedirCantidadExtras() {
+        System.out.print("¿Cuantos extras?: ");
+        while (!sc.hasNextInt()) {
+            System.out.print("Ingrese número válido: ");
+            sc.next();
+        }
+        int cantidad = sc.nextInt();
+        sc.nextLine();
+        return cantidad;
+    }
+
+//Funciones de Pablo
+    public static double calcularPrecioPizza(double precioSabor, double tamañoProporcional) {
+        return precioSabor * tamañoProporcional;
+    }
+    
+    public static double calcularSubtotal(double cantidadP, double precioP, double cantidadB, double precioBebida, double cantidadE, double precioExtras) {
+        return (cantidadP * precioP) + (cantidadB * precioBebida) + (cantidadE * precioExtras);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    static void Ticket(String nombre, String sabor, String tipoTamaño, double precioP, int cantidadP, int agregarBebida, String saborBebida, String tipoBebida, double precioBebida, int cantidadB, int agregarExtras, String saborExtras, double precioExtras, int cantidadE, double sub, double montoDescuento, double ivaMonto, double total) {
+        
+        // Códigos ANSI para dar color y estilo en la consola
+        final String RESET = "\u001B[0m";
+        final String BOLD = "\u001B[1m";
+        final String CYAN = "\u001B[36m";
+        final String GREEN = "\u001B[32m";
+        final String YELLOW = "\u001B[33m";
+        final String PURPLE = "\u001B[35m";
+        final String WHITE = "\u001B[37m";
+
+        System.out.println(CYAN + BOLD + "\n==================================================");
+        System.out.println("  ____  _              ____         __ _   ");
+        System.out.println(" |  _ \\(_)__________ _/ ___|  ___  / _| |_ ");
+        System.out.println(" | |_) | |_  /_  / _` \\___ \\ / _ \\| |_| __|");
+        System.out.println(" |  __/| |/ / / / (_| |___) | (_) |  _| |_ ");
+        System.out.println(" |_|   |_/__/___\\__,_|____/ \\___/|_|  \\__| ");
+        System.out.println("         S I S T E M A  D E  V E N T A S    ");
+        System.out.println("==================================================" + RESET);
+        
+        System.out.println(YELLOW + " Cliente: " + RESET + (nombre.isEmpty() ? "Mostrador" : nombre));
+        System.out.println(CYAN + "--------------------------------------------------" + RESET);
+        System.out.println(BOLD + " DETALLE DE CONSUMO:" + RESET);
+        
+        // Detalle de la Pizza
+        System.out.println(" • Pizza: " + sabor + " " + tipoTamaño);
+        System.out.println("   Cant: " + cantidadP + " | P.Unit: $" + String.format("%.2f", precioP));
+        
+        // Detalle de Bebida (Si se agregó)
+        if (agregarBebida == 1) {
+            System.out.println(" • Bebida: " + saborBebida + " (" + tipoBebida + ")");
+            System.out.println("   Cant: " + cantidadB + " | P.Unit: $" + String.format("%.2f", precioBebida));
+        }
+        
+        // Detalle de Extras (Si se agregó)
+        if (agregarExtras == 1) {
+            System.out.println(" • Extra: " + saborExtras);
+            System.out.println("   Cant: " + cantidadE + " | P.Unit: $" + String.format("%.2f", precioExtras));
+        }
+        
+        System.out.println(CYAN + "--------------------------------------------------" + RESET);
+        System.out.println(WHITE + " Subtotal:          $" + String.format("%.2f", sub) + RESET);
+        System.out.println(PURPLE + " Descuento:        -$" + String.format("%.2f", montoDescuento) + RESET);
+        System.out.println(WHITE + " IVA (16%):         $" + String.format("%.2f", ivaMonto) + RESET);
+        System.out.println(CYAN + "==================================================" + RESET);
+        System.out.println(GREEN + BOLD + " TOTAL A PAGAR:     $" + String.format("%.2f", total) + RESET);
+        System.out.println(CYAN + "==================================================" + RESET);
+        System.out.println(YELLOW + "       ¡Gracias por su compra en Pizza Soft!      " + RESET);
+        System.out.println(CYAN + "==================================================\n" + RESET);
+    }
 // ! -----------------------------------Main----------------------------------------------------------------------------------------
     public static void  main(String[]args){
         //ADVERTENCIA: NO METER FUNCIONES DENTRO DEL MAIN//
@@ -287,7 +512,7 @@ public class pizzeria {
                     System.out.println("Opción no válida, intente de nuevo.");
                     break;
             }
-        }While (opcionMenu != 3);
+        }while (opcionMenu != 3);
 
 
 
