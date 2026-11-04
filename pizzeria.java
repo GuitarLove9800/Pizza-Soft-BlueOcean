@@ -53,10 +53,10 @@ public class pizzeria {
                 switch(opcionMenu) {
                         case 1 :
                                 sc.nextLine();
-                                System.out.println("REGISTRO DE CLIENTE");
+                                System.out.println("===== REGISTRO DE CLIENTE =====");
                                 System.out.println("Ingrese su nombre");
-                                String userClient = sc.nextLine();
-                                System.out.println("Nombre Registrado: 1" + userClient);
+                                nombre = sc.nextLine();
+                                System.out.println("Nombre Registrado: 1" + nombre);
 
 
                                 //TODO break del case 1
@@ -64,64 +64,50 @@ public class pizzeria {
                         
                         case 2 :
                                 //! Menu de tamaño de pizzas 
-                                System.out.println("MENU PRICIPAL");
+                                System.out.println("===== MENU DE PIZZAS =====");
                                 System.out.println("Tamaños");
-                                System.out.println("1·Pizzeta (20cm diametro) = $32.65");
-                                System.out.println("2·Personal (25cm diametro) = $51.00");
-                                System.out.println("3·Pequeña (30cm diametro) = $73.47");
-                                System.out.println("4·Mediana (25cm Diametro) = $100.00");
-                                System.out.println("5·Grande (40cm Diametro) = $130.06");
-                                System.out.println("6· Jumbo (50cm Diametro) = $204.08");
+                                System.out.println("1·Pizzeta (20cm diametro)");
+                                System.out.println("2·Personal (25cm diametro)");
+                                System.out.println("3·Pequeña (30cm diametro)");
+                                System.out.println("4·Mediana (25cm Diametro)");
+                                System.out.println("5·Grande (40cm Diametro)");
+                                System.out.println("6· Jumbo (50cm Diametro)");
                                 System.out.println("Selecciona el número de tamaño");
-                                int opcionTamaño =sc.nextInt();
+                                opcionTamaños =sc.nextInt();
                                 // !cantidad de pizzas
-                                System.out.println("Ingresa Cantidad de Pizzas");
-                                int cantPizzas = sc.nextInt();
-                                double precioPizza;
+                                System.out.println("¿Cuántas pizzas?");
+                                cantidadPizza = sc.nextInt();
+                                
                                 //! Asignacion de Precios a Pizzas 
-                                switch(opcionTamaño) {
+                                switch(opcionTamaños) {
                                         //? Pizzeta
-                                        case 1: precioPizza = 32.00;
+                                        case 1: tamañoProporcional = 0.3265;
+                                                tipoTamaño = "Pizzeta (20cm diámetro)";
                                                 break;
                                         //? Personal
-                                        case 2: precioPizza = 51.00;
+                                        case 2: tamañoProporcional = 0.51;
+                                                tipoTamaño = "Personal (25cm diámetro)";
                                                 break;
                                         //? Pequeña
-                                        case 3: precioPizza = 73.47;
+                                        case 3: tamañoProporcional = 0.7347;
+                                                tipoTamaño = "Pequeña (30cm diámetro)";
                                                 break;
                                         //? Mediana
-                                        case 4: precioPizza = 100.00;
+                                        case 4: tamañoProporcional = 1.00;
+                                                tipoTamaño = "Mediana (35cm diámetro)";
                                                 break;
                                         //? Grande
-                                        case 5: precioPizza = 130.06;
+                                        case 5: tamañoProporcional = 1.306;
+                                                tipoTamaño = "Grande (40cm diámetro)";
                                                 break;
                                         //? Jumbo
-                                        case 6: precioPizza = 204.08;
+                                        case 6: tamañoProporcional = 2.0408;
+                                                tipoTamaño = "Jumbo (50cm diámetro)";
                                                 break;
                                         default: System.out.println("Opción no valida");
-                                }               
+                                                tamañoProporcional = 1;
+                                                tipoTamaño = "Desconocido";
 
-                                String tipoTamaño;
-                                switch (opcionTamaño) {
-                                        //? Pizzeta
-                                        case 1: tipoTamaño = "Pizzeta (20cm diámetro)";
-                                                break;
-                                        //? Personal
-                                        case 2: tipoTamaño = "Personal (25cm diámetro)";
-                                                break;
-                                        //? Pequeña
-                                        case 3: tipoTamaño = "Pequeña (30cm diámetro)";
-                                                break;
-                                        //? Mediana
-                                        case 4: tipoTamaño = "Mediana (35cm diámetro)";
-                                                break;
-                                        //? Grande
-                                        case 5: tipoTamaño = "Grande (40cm diámetro)";
-                                                break;
-                                        //? Jumbo
-                                        case 6: tipoTamaño = "Jumbo (50cm diámetro)";
-                                                break;
-                                        default: System.out.println("Opción no valida");
                                 }
                 
                                 //!Mostrar menu de Pizzas
@@ -134,7 +120,7 @@ public class pizzeria {
                                 System.out.println("6·BBQ Chicken. Salsa BBQ, mozzarella, pollo, cebolla");      
                                 System.out.println("7·Especial de la Casa. Salsa de tomate, mozzarella, pepperoni, jamón, tocino, champiñones, pimiento"); 
                                 System.out.println("Seleccione el sabor de la pizza"); 
-                                int opcionPizzas;
+                                opcionPizzas = sc.nextInt();
                 
                 
                                 //TODO Break del Case 2
