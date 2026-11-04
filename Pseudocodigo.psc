@@ -1,268 +1,296 @@
-	//Se muestra el menu principal
-	Funcion opcionMenu <- menuPrincipal
-		Mostrar "Menu"
-		Mostrar "1.Registrar cliente"
-		Mostrar "2.Realizar pedido"
-		Mostrar "3.Salir"
-		Mostrar "Seleccione una opcion"
-		Leer opcionMenu
+// ==========================================
+// FUNCIONES Y SUBPROCESOS (Nombres corregidos)
+// ==========================================
+
+Funcion opcionMenu <- menuPrincipal
+	Mostrar "====================================="
+	Mostrar "Pizza Soft by BlueOcean - Menú"
+	Mostrar "1. Registrar cliente"
+	Mostrar "2. Realizar pedido"
+	Mostrar "3. Salir"
+	Mostrar "Seleccione una opcion:"
+	Leer opcionMenu
 FinFuncion
 
-//Se registra el cliente
-Funcion nombre <- registrarCliente
-	Mostrar "Registrar cliente"
-	Mostrar "Ingrese nombre"
-	Leer nombre
+Funcion nombreCliente <- registrarCliente
+	Mostrar "===== REGISTRO DE CLIENTE ====="
+	Mostrar "Ingrese nombre:"
+	Leer nombreCliente
 FinFuncion
 
-//Tamaños de Pizza
 Funcion opcionTamaños <- menuTamaños
-	Mostrar "Tamaños"
+	Mostrar "===== MENU DE PIZZAS ====="
+	Mostrar "Tamaños:"
 	Mostrar "1. Pizzeta (20cm diámetro)"
 	Mostrar "2. Personal (25cm diámetro)"
 	Mostrar "3. Pequeña (30cm diámetro)"
 	Mostrar "4. Mediana (35cm diámetro)"
 	Mostrar "5. Grande (40cm diámetro)"
 	Mostrar "6. Jumbo (50cm diámetro)"
-	Mostrar "Seleccione el numero de tamaño"
+	Mostrar "Seleccione el numero de tamaño:"
 	Leer opcionTamaños
 FinFuncion
 
-//valor de cada tamaño de pizza
 Funcion tamañoProporcional <- proporcionTamaño(opcionTamaños)
 	Segun opcionTamaños
-		Caso 1: tamañoProporcional <- .3265
-		Caso 2: tamañoProporcional <- .51
-		Caso 3: tamañoProporcional <- .7347
-		caso 4: tamañoProporcional <- 1
+		Caso 1: tamañoProporcional <- 0.3265
+		Caso 2: tamañoProporcional <- 0.51
+		Caso 3: tamañoProporcional <- 0.7347
+		Caso 4: tamañoProporcional <- 1
 		Caso 5: tamañoProporcional <- 1.306	
-		caso 6: tamañoProporcional <- 2.0408
-		Defecto: Mostrar "Opcion no valida"
+		Caso 6: tamañoProporcional <- 2.0408
+		De Otro Modo: 
+			Mostrar "Opcion no valida. Se asigna Mediana por defecto."
+			tamañoProporcional <- 1
 	FinSegun
 FinFuncion
 
-//Se muestra en el ticket que tamaño se escogio
 Funcion tipoTamaño <- nombreTamaño (opcionTamaños)
 	Segun opcionTamaños 
 		Caso 1: tipoTamaño <- "Pizzeta (20cm diámetro)"
 		Caso 2: tipoTamaño <- "Personal (25cm diámetro)"
 		Caso 3: tipoTamaño <- "Pequeña (30cm diámetro)"
-		caso 4: tipoTamaño <- "Mediana (35cm diámetro)"
+		Caso 4: tipoTamaño <- "Mediana (35cm diámetro)"
 		Caso 5: tipoTamaño <- "Grande (40cm diámetro)"	
-		caso 6: tipoTamaño <- "Jumbo (50cm diámetro)"
-		Defecto: Mostrar "Opcion no valida"
-		FinSegun
-FinFuncion
-
-	//cantidad de pizzas
-	Funcion cantidadP <- cantidadPizza
-		Mostrar "¿Cuántas pizzas?"
-		Leer cantidadP
-	FinFuncion
-
-	Funcion opcionPizzas<- saborPizza
-		Mostrar "Pizzas"
-		Mostrar "1. Pepperoni. Salsa de tomate, queso mozzarella, pepperoni"
-		Mostrar "2. Hawaiana. Salsa de tomate, queso mozzarella, jamón, piña"
-		Mostrar "3. Al pastor. Salsa de tomate, queso mozzarella, carne al pastor"
-		Mostrar "4. Cuatro quesos. Mozzarella, manchego, parmesano, queso azul"
-		Mostrar "5. Mexicana. Salsa de tomate, queso mozzarella, chorizo, jalapeño, cebolla"
-		Mostrar "6. BBQ Chicken. Salsa BBQ, mozzarella, pollo, cebolla"
-		Mostrar "7. Especial de la Casa. Salsa de tomate, mozzarella, pepperoni, jamón, tocino, champiñones, pimiento"
-		Mostrar "Seleccione el sabor de la pizza"
-		Leer opcionPizzas
-	FinFuncion
-	
-	//Valor de cada sabor de pizza
-	Funcion precioSabor <- saborPrecio (opcionPizzas)
-		Segun opcionPizzas
-			Caso 1:precioSabor<-100
-			Caso 2:precioSabor<-500
-			Caso 3:precioSabor<-133
-			Caso 4:precioSabor<-125
-			Caso 5:precioSabor<-139
-			Caso 6:precioSabor<-146
-			Caso 7:precioSabor<-149
-		FinSegun
-	FinFuncion
-	
-	//Se muestra en el ticket el sabor de pizza elegido
-Funcion sabor<- nombreSabor (opcionPizzas)
-	Segun opcionPizzas
-		Caso 1:sabor<- "Pepperoni."
-		Caso 2:sabor<- "Hawaiana."
-		Caso 3:sabor<- "Al pastor."
-		Caso 4:sabor<- "Cuatro quesos."
-		Caso 5:sabor<- "Mexicana."
-		Caso 6:sabor<- "BBQ Chicken."
-		Caso 7:sabor<- "Especial de la Casa."
-		Defecto: MOSTRAR "No se encontro el sabor"	
+		Caso 6: tipoTamaño <- "Jumbo (50cm diámetro)"
+		De Otro Modo: tipoTamaño <- "Mediana (35cm diámetro)"
 	FinSegun
 FinFuncion
 
-//Se muestra el menu de bebidas
+Funcion cantidadP <- pedirCantidadPizza
+	Mostrar "¿Cuántas pizzas?"
+	Leer cantidadP
+	Mientras cantidadP <= 0 Hacer
+		Mostrar "Debe ser al menos 1. Intenta de nuevo:"
+		Leer cantidadP
+	FinMientras
+FinFuncion
+
+Funcion opcionPizzas <- menuSaborPizza
+	Mostrar "Sabores de Pizza:"
+	Mostrar "1. Pepperoni"
+	Mostrar "2. Hawaiana"
+	Mostrar "3. Al pastor"
+	Mostrar "4. Cuatro quesos"
+	Mostrar "5. Mexicana"
+	Mostrar "6. BBQ Chicken"
+	Mostrar "7. Especial de la Casa"
+	Mostrar "Seleccione el sabor de la pizza:"
+	Leer opcionPizzas
+FinFuncion
+
+Funcion precioSabor <- saborPrecio (opcionPizzas)
+	Segun opcionPizzas
+		Caso 1: precioSabor <- 100
+		Caso 2: precioSabor <- 500
+		Caso 3: precioSabor <- 133
+		Caso 4: precioSabor <- 125
+		Caso 5: precioSabor <- 139
+		Caso 6: precioSabor <- 146
+		Caso 7: precioSabor <- 149
+		De Otro Modo: 
+			Mostrar "Sabor no encontrado. Se asigna Pepperoni por defecto."
+			precioSabor <- 100
+	FinSegun
+FinFuncion
+
+Funcion sabor <- nombreSabor (opcionPizzas)
+	Segun opcionPizzas
+		Caso 1: sabor <- "Pepperoni"
+		Caso 2: sabor <- "Hawaiana"
+		Caso 3: sabor <- "Al pastor"
+		Caso 4: sabor <- "Cuatro quesos"
+		Caso 5: sabor <- "Mexicana"
+		Caso 6: sabor <- "BBQ Chicken"
+		Caso 7: sabor <- "Especial de la Casa"
+		De Otro Modo: sabor <- "Pepperoni"
+	FinSegun
+FinFuncion
+
 Funcion opcionBebida <- menuBebida
-	Mostrar "Bebidas"
-	Mostrar "1.	De sabor"
-	MOSTRAR "2.	Coca Cola"
-	MOSTRAR "3.	Agua"
-	Mostrar "Seleccione una bebida"
+	Mostrar "Bebidas:"
+	Mostrar "1. De sabor"
+	Mostrar "2. Coca Cola"
+	Mostrar "3. Agua"
+	Mostrar "Seleccione una bebida:"
 	Leer opcionBebida
 FinFuncion
 
-//Se muestra la bebida en el ticket
 Funcion saborBebida <- nombreBebida(opcionBebida)
 	Segun opcionBebida
-		Caso 1:saborBebida<- "De sabor"
-		Caso 2:saborBebida<- "Coca Cola"
-		Caso 3:saborBebida<- "Agua"
-		Defecto: Mostrar "No disponible"
+		Caso 1: saborBebida <- "De sabor"
+		Caso 2: saborBebida <- "Coca Cola"
+		Caso 3: saborBebida <- "Agua"
+		De Otro Modo: saborBebida <- "No disponible"
 	FinSegun
 FinFuncion
 
-//menu de tamaños de bebida
 Funcion tamañoBebida <- menuTamañoBebida
-	Mostrar "Tamaños de bebida"
-	Mostrar "1.	600 ml"
+	Mostrar "Tamaños de bebida:"
+	Mostrar "1. 600 ml"
 	Mostrar "2. 2 L"
 	Leer tamañoBebida
 FinFuncion
 
-//precio de bebidas
 Funcion precioBebida <- valorBebida (tamañoBebida)
 	Segun tamañoBebida
-		Caso 1:precioBebida<- 12
-		Caso 2:precioBebida<- 40
-		Defecto: Mostrar "No disponible"
+		Caso 1: precioBebida <- 12
+		Caso 2: precioBebida <- 40
+		De Otro Modo: precioBebida <- 0
 	FinSegun
 FinFuncion
 
-//tamaño de bebidas
 Funcion tipoBebida <- tipodeBebida(tamañoBebida)
 	Segun tamañoBebida
-		Caso 1: tipoBebida<-"600ml"
-		Caso 2: tipoBebida<-"2L"
+		Caso 1: tipoBebida <- "600ml"
+		Caso 2: tipoBebida <- "2L"
+		De Otro Modo: tipoBebida <- "N/A"
 	FinSegun
 FinFuncion
 
-//cantidad de bebidas
-Funcion cantidadB <- cantidadBebida
+Funcion cantidadB <- pedirCantidadBebida
 	Mostrar "¿Cuantas bebidas?"
 	Leer cantidadB
 FinFuncion
 
-//menu de los extras
 Funcion opcionExtras <- menuExtras
-	Mostrar "Extras"
-	Mostrar "1.	Pan de ajo"
-	MOSTRAR "2.	Dedos de queso"
-	Mostrar "Seleccione una bebida"
+	Mostrar "Extras:"
+	Mostrar "1. Pan de ajo"
+	Mostrar "2. Dedos de queso"
+	Mostrar "Seleccione un extra:"
 	Leer opcionExtras
 FinFuncion
 
-//Se muestra en el ticket
 Funcion saborExtras <- nombreExtras(opcionExtras)
 	Segun opcionExtras
-		Caso 1:saborExtras<- "Pan de ajo"
-		Caso 2:saborExtras<- "Dedos de queso"
-		Defecto: Mostrar "No disponible"
+		Caso 1: saborExtras <- "Pan de ajo"
+		Caso 2: saborExtras <- "Dedos de queso"
+		De Otro Modo: saborExtras <- "No disponible"
 	FinSegun
 FinFuncion
 
-//precio de los extras
 Funcion precioExtras <- valorExtra(opcionExtras)
 	Segun opcionExtras
-		Caso 1:precioExtras<- 31
-		Caso 2:precioExtras<- 39
-		Defecto: Mostrar "No disponible"
+		Caso 1: precioExtras <- 31
+		Caso 2: precioExtras <- 39
+		De Otro Modo: precioExtras <- 0
 	FinSegun
 FinFuncion
 
-//cantidad de extras
-Funcion cantidadE <- cantidadExtras
-	Mostrar "¿Cuantos?"
+Funcion cantidadE <- pedirCantidadExtras
+	Mostrar "¿Cuantos extras?"
 	Leer cantidadE
 FinFuncion
 
-//precio de la pizza
-Funcion precioP <- precioPizza(precioSabor, tamañoProporcional)
-	precioP <- precioSabor*tamañoProporcional
+Funcion precioP <- calcularPrecioPizza(precioSabor, tamañoProporcional)
+	precioP <- precioSabor * tamañoProporcional
 FinFuncion
 
-Funcion sub <- subtotal (cantidadP, precioP, cantidadB, precioBebida, cantidadE, precioExtras)
-	sub <- cantidadP*precioP + cantidadB*precioBebida + cantidadE*precioExtras
+Funcion sub <- calcularSubtotal (cantidadP, precioP, cantidadB, precioBebida, cantidadE, precioExtras)
+	sub <- (cantidadP * precioP) + (cantidadB * precioBebida) + (cantidadE * precioExtras)
 FinFuncion
 
-//Ticket (no devuelve nada, por eso es SubProceso)
-SubProceso Ticket(nombre, sabor, tipoTamaño, precioP, cantidadP, saborBebida, tipoBebida, precioBebida, cantidadB, saborExtras, precioExtras, cantidadE, sub, descuento, iva, total)
-	Mostrar "Pizza Soft by BlueOcean-Sistema de Ventas para una Pizzería"
-	Mostrar "Nombre del cliente ", nombre
-	Mostrar "Pizza ", sabor, " ", tipoTamaño, " $", precioP
-	Mostrar "Numero de pizzas ", cantidadP
-	Mostrar "Bebida ", saborBebida, " ", tipoBebida, " $", precioBebida
-	Mostrar "Cantidad de bebida ", cantidadB
-	Mostrar "Extras ", saborExtras, " $", precioExtras
-	Mostrar "Numero de extras ", cantidadE
-	Mostrar "Subtotal $", sub
-	Mostrar "Descuento ", descuento
-	Mostrar "IVA ", iva
-	Mostrar "Total $", total
+SubProceso Ticket(nombre, sabor, tipoTamaño, precioP, cantidadP, agregarBebida, saborBebida, tipoBebida, precioBebida, cantidadB, agregarExtras, saborExtras, precioExtras, cantidadE, sub, montoDescuento, ivaMonto, total)
+	Mostrar "====================================="
+	Mostrar "  TICKET DE VENTA - PIZZA SOFT       "
+	Mostrar "====================================="
+	Mostrar "Nombre del cliente: ", nombre
+	Mostrar "Pizza: ", sabor, " ", tipoTamaño, " - Unitario: $", precioP
+	Mostrar "Numero de pizzas: ", cantidadP
+	Si agregarBebida == 1 Entonces
+		Mostrar "Bebida: ", saborBebida, " (", tipoBebida, ") - Unitario: $", precioBebida
+		Mostrar "Cantidad de bebida: ", cantidadB
+	FinSi
+	Si agregarExtras == 1 Entonces
+		Mostrar "Extra: ", saborExtras, " - Unitario: $", precioExtras
+		Mostrar "Numero de extras: ", cantidadE
+	FinSi
+	Mostrar "-------------------------------------"
+	Mostrar "Subtotal: $", sub
+	Mostrar "Descuento aplicado: $", montoDescuento
+	Mostrar "IVA (16%): $", ivaMonto
+	Mostrar "Total a pagar: $", total
+	Mostrar "====================================="
 FinSubProceso
 
+
+// ==========================================
+// ALGORITMO PRINCIPAL
+// ==========================================
 Algoritmo Pizzeria
-Repetir
-	opcionMenu <- menuPrincipal
-	Segun opcionMenu
-		Caso 1:
-			nombre <- registrarCliente
-		Caso 2: 
-			// Pizza
-			opcionTamaños <- menuTamaños
-			tamañoProporcional <- proporcionTamaño(opcionTamaños)
-			tipoTamaño <- nombreTamaño (opcionTamaños)
-			cantidadP <- cantidadPizza
-			
-			opcionPizzas<- saborPizza
-			precioSabor <- saborPrecio (opcionPizzas)
-			sabor<- nombreSabor (opcionPizzas)
-			
-			//Bebidas
-			Mostrar "¿Desea agregar bebidas?, Escriba 1"
-			Leer agregarBebida
-			Si (agregarBebida == 1) Entonces
-				opcionBebida <- menuBebida
-				saborBebida <- nombreBebida(opcionBebida)
-				tamañoBebida <- menuTamañoBebida
-				precioBebida <- valorBebida (tamañoBebida)
-				tipoBebida <- tipodeBebida(tamañoBebida)
-				cantidadB <- cantidadBebida
-			FinSi
-			
-			// Extras
-			Mostrar "¿Desea agregar extras?, Escriba 1"
-			Leer agregarExtras
-			Si (agregarExtras == 1) Entonces
-				opcionExtras <- menuExtras
-				saborExtras <- nombreExtras(opcionExtras)
-				precioExtras <- valorExtra(opcionExtras)
-				cantidadE <- cantidadExtras
-			FinSi
-			
-			precioP <- precioPizza(precioSabor, tamañoProporcional)
-			sub <- subtotal (cantidadP, precioP, cantidadB, precioBebida,  cantidadE, precioExtras)
-			
-			descuento = .20
-			iva = .16
-			
-			Si cantidadP >= 2 Entonces
-				total = sub*(1-descuento)*(1+iva )
-			SiNo
-				total = sub*(1+iva)
-			FinSi
-			
-		Caso 3: Mostrar "Gracias por usar el sistema"
-		Defecto: Mostrar "Opcion no valida"
-	FinSegun
+	Definir opcionMenu, opcionTamaños, cantidadPizza, opcionPizzas, agregarBebida, opcionBebida, tamañoBebida, cantidadBebida, agregarExtras, opcionExtras, cantidadExtras como Entero
+	Definir nombre, tipoTamaño, sabor, saborBebida, tipoBebida, saborExtras como Cadena
+	Definir tamañoProporcional, precioSabor, precioP, precioBebida, precioExtras, sub, descuento, montoDescuento, ivaMonto, total como Real
+
+	nombre <- "Mostrador"
+	agregarBebida <- 0
+	cantidadBebida <- 0
+	precioBebida <- 0
+	saborBebida <- "Ninguna"
+	tipoBebida <- "Ninguno"
+	
+	agregarExtras <- 0
+	cantidadExtras <- 0
+	precioExtras <- 0
+	saborExtras <- "Ninguno"
+
+	Repetir
+		opcionMenu <- menuPrincipal
+		Segun opcionMenu
+			Caso 1:
+				nombre <- registrarCliente
+				
+			Caso 2: 
+				opcionTamaños <- menuTamaños
+				tamañoProporcional <- proporcionTamaño(opcionTamaños)
+				tipoTamaño <- nombreTamaño (opcionTamaños)
+				cantidadPizza <- pedirCantidadPizza
+				
+				opcionPizzas <- menuSaborPizza
+				precioSabor <- saborPrecio (opcionPizzas)
+				sabor <- nombreSabor (opcionPizzas)
+				
+				Mostrar "¿Desea agregar bebidas? (Escriba 1 para Sí, otro número para No):"
+				Leer agregarBebida
+				Si (agregarBebida == 1) Entonces
+					opcionBebida <- menuBebida
+					saborBebida <- nombreBebida(opcionBebida)
+					tamañoBebida <- menuTamañoBebida
+					precioBebida <- valorBebida (tamañoBebida)
+					tipoBebida <- tipodeBebida(tamañoBebida)
+					cantidadBebida <- pedirCantidadBebida
+				FinSi
+				
+				Mostrar "¿Desea agregar extras? (Escriba 1 para Sí, otro número para No):"
+				Leer agregarExtras
+				Si (agregarExtras == 1) Entonces
+					opcionExtras <- menuExtras
+					saborExtras <- nombreExtras(opcionExtras)
+					precioExtras <- valorExtra(opcionExtras)
+					cantidadExtras <- pedirCantidadExtras
+				FinSi
+				
+				precioP <- calcularPrecioPizza(precioSabor, tamañoProporcional)
+				sub <- calcularSubtotal (cantidadPizza, precioP, cantidadBebida, precioBebida, cantidadExtras, precioExtras)
+				
+				descuento <- 0.20
+				
+				Si cantidadPizza >= 2 Entonces
+					montoDescuento <- sub * descuento
+				SiNo
+					montoDescuento <- 0
+				FinSi
+				
+				ivaMonto <- (sub - montoDescuento) * 0.16
+				total <- (sub - montoDescuento) + ivaMonto
+				
+				Ticket(nombre, sabor, tipoTamaño, precioP, cantidadPizza, agregarBebida, saborBebida, tipoBebida, precioBebida, cantidadBebida, agregarExtras, saborExtras, precioExtras, cantidadExtras, sub, montoDescuento, ivaMonto, total)
+				
+			Caso 3: 
+				Mostrar "¡Gracias por usar el sistema de Pizza Soft!"
+				
+			De Otro Modo: 
+				Mostrar "Opción no válida, intente de nuevo."
+		FinSegun
 Hasta Que opcionMenu == 3
-Ticket(nombre, sabor, tipoTamaño, precioP, cantidadP, saborBebida, tipoBebida, precioBebida, cantidadB, saborExtras, precioExtras, cantidadE, sub, descuento, iva, total)
 FinAlgoritmo
