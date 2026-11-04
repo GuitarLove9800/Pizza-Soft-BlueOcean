@@ -259,6 +259,28 @@ public class pizzeria {
         }
     }
 
+    //cantidad de extras
+    static int pedirCantidadExtras() {
+        System.out.print("¿Cuantos extras?: ");
+        while (!sc.hasNextInt()) {
+            System.out.print("Ingrese número válido: ");
+            sc.next();
+        }
+        int cantidad = sc.nextInt();
+        sc.nextLine();
+        return cantidad;
+    }
+
+
+
+
+
+
+
+
+
+
+
 
 // ! -----------------------------------Main----------------------------------------------------------------------------------------
     public static void  main(String[]args){
