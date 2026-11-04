@@ -1,5 +1,6 @@
 # Desarrollo del proyecto
-**Equipo 2:** Pablo Antonio Duarte, Emmanuel Alexander Poot, Isabella Medina  
+
+**Equipo 2:** Pablo Antonio Duarte, Emmanuel Alexander Poot, Isabella Medina 
 
 ## Fase 1. Análisis y planeación del proyecto.
 
@@ -15,7 +16,6 @@ Se desea registrar los pedidos; seleccionando los productos: tamaños, pizzas, e
 Desarrollar un programa que permita tomar pedidos en una pizzería, calcular los descuentos, IVA y generar un ticket de compra.
 
 ### 1.4 Módulos / Función
-
 | Módulo | Función | Estado en Código |
 | :--- | :--- | :--- |
 | **Inicio** | Menú de Inicio, Bienvenida con Arte ASCII, Menú Principal | ✅ Implementado |
@@ -97,6 +97,7 @@ Desarrollar un programa que permita tomar pedidos en una pizzería, calcular los
 ### 1.9 Algoritmo General del sistema
 ```text
 INICIO
+
     Mostrar bienvenida y arte ASCII
     Bucle Principal (Do-While):
         Mostrar menú principal
@@ -152,4 +153,3 @@ Pizza Soft by BlueOcean - Menú
 ==================================================
         ¡Gracias por su compra en Pizza Soft!      
 ==================================================
-```
