@@ -344,6 +344,7 @@ public class pizzeria {
         return cantidad;
     }
 
+
 //Funciones de Pablo
     public static double calcularPrecioPizza(double precioSabor, double tamañoProporcional) {
         return precioSabor * tamañoProporcional;
@@ -352,25 +353,6 @@ public class pizzeria {
     public static double calcularSubtotal(double cantidadP, double precioP, double cantidadB, double precioBebida, double cantidadE, double precioExtras) {
         return (cantidadP * precioP) + (cantidadB * precioBebida) + (cantidadE * precioExtras);
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     static void Ticket(String nombre, String sabor, String tipoTamaño, double precioP, int cantidadP, int agregarBebida, String saborBebida, String tipoBebida, double precioBebida, int cantidadB, int agregarExtras, String saborExtras, double precioExtras, int cantidadE, double sub, double montoDescuento, double ivaMonto, double total) {
         
