@@ -346,16 +346,15 @@ public class pizzeria {
 
 
 //Funciones de Pablo
-    public static double calcularPrecioPizza(double precioSabor, double tamañoProporcional) {
-        return precioSabor * tamañoProporcional;
+    static double calcularPrecioPizza(double precioSabor, double tamañoProporcional) {
+    return precioSabor * tamañoProporcional;
     }
     
-    public static double calcularSubtotal(double cantidadP, double precioP, double cantidadB, double precioBebida, double cantidadE, double precioExtras) {
-        return (cantidadP * precioP) + (cantidadB * precioBebida) + (cantidadE * precioExtras);
+    static double calcularSubtotal(double cantidadP, double precioP, double cantidadB, double precioBebida, double cantidadE, double precioExtras) {
+    return (cantidadP * precioP) + (cantidadB * precioBebida) + (cantidadE * precioExtras);
     }
 
-    static void Ticket(String nombre, String sabor, String tipoTamaño, double precioP, int cantidadP, int agregarBebida, String saborBebida, String tipoBebida, double precioBebida, int cantidadB, int agregarExtras, String saborExtras, double precioExtras, int cantidadE, double sub, double montoDescuento, double ivaMonto, double total) {
-        
+    static void Ticket(String nombre, String sabor, String tipoTamaño, double precioP, int cantidadP, int agregarBebida, String saborBebida, String tipoBebida, double precioBebida, int cantidadB, int agregarExtras, String saborExtras, double precioExtras, int cantidadE, double sub, double montoDescuento, double ivaMonto, double total) { 
         // Códigos ANSI para dar color y estilo en la consola
         final String RESET = "\u001B[0m";
         final String BOLD = "\u001B[1m";
